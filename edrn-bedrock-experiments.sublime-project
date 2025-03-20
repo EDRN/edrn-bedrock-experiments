@@ -1,0 +1,27 @@
+{
+   "folders" : [
+      {
+         "file_exclude_patterns" : [
+            "*.sublime-*",
+            ".DS_Store",
+            "pyvenv.cfg"
+         ],
+         "folder_exclude_patterns" : [
+            "__pycache__",
+            "environment",
+            ".venv",
+            "venv",
+            "dist",
+            "bin",
+            "etc",
+            "include",
+            "share",
+            "lib",
+            "build",
+            "*.egg-info",
+            "build"
+         ],
+         "path" : "."
+      }
+   ]
+}
