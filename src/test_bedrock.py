@@ -1,7 +1,6 @@
 # encoding: utf-8
 
 import json, boto3, sys
-from pprint import pprint
 
 
 def main():

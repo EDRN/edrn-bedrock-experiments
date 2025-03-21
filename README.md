@@ -66,5 +66,67 @@ To run each of these, first login with `aws-login` as above; then use the Python
     bin/python3 src/lab/f-2/bedrock_api.py
 
 
+### Lab I-1: RAG Chatbot
+
+The retrieval-augmented generator chatbot requires some additional setup before it can be run. First, edit the file `environment/workshop/data/populate_collection.py` and change line 8 from
+
+    session = boto3.Session()
+
+to
+
+    session = boto3.Session(profile_name='saml-pub')
+
+Then run:
+```console
+$ cd environment/workshop/data
+$ ../../../bin/python3 populate_collection.py
+$ cd ../../..
+```
+You can then start the chat with:
+```console
+$ cd src/lab/i-1
+$ ../../../bin/streamlit run rag_chatbot_app.py --server.port 8080
+```
+Your browser should automatically open to http://localhost:8080.
+
+⚠️ **Note:** It still won't work! None of the models we have access support both "tool use" and `converse` which are apparently required for this example.
 
 
+## Available Models
+
+The JPL Bedrock contract provides the following foundation models:
+
+- Llama 3 70B Instruct (ID: `meta.llama3-70b-instruct-v1:0`)
+- Llama 3 8B Instruct (ID: `meta.llama3-8b-instruct-v1:0`)
+- Llama 3.1 405B Instruct (ID: `meta.llama3-1-405b-instruct-v1:0`)
+- Llama 3.1 70B Instruct (ID: `meta.llama3-1-70b-instruct-v1:0`)
+- Llama 3.1 70B Instruct (ID: `meta.llama3-1-70b-instruct-v1:0:128k`)
+- Llama 3.1 8B Instruct (ID: `meta.llama3-1-8b-instruct-v1:0`)
+- Llama 3.1 8B Instruct (ID: `meta.llama3-1-8b-instruct-v1:0:128k`)
+- Llama 3.2 11B Instruct (ID: `meta.llama3-2-11b-instruct-v1:0`)
+- Llama 3.2 11B Instruct (ID: `meta.llama3-2-11b-instruct-v1:0:128k`)
+- Llama 3.2 1B Instruct (ID: `meta.llama3-2-1b-instruct-v1:0`)
+- Llama 3.2 1B Instruct (ID: `meta.llama3-2-1b-instruct-v1:0:128k`)
+- Llama 3.2 3B Instruct (ID: `meta.llama3-2-3b-instruct-v1:0`)
+- Llama 3.2 3B Instruct (ID: `meta.llama3-2-3b-instruct-v1:0:128k`)
+- Llama 3.2 90B Instruct (ID: `meta.llama3-2-90b-instruct-v1:0`)
+- Llama 3.2 90B Instruct (ID: `meta.llama3-2-90b-instruct-v1:0:128k`)
+- Llama 3.3 70B Instruct (ID: `meta.llama3-3-70b-instruct-v1:0`)
+- Nova Lite (ID: `amazon.nova-lite-v1:0`)
+- Nova Micro (ID: `amazon.nova-micro-v1:0`)
+- Nova Pro (ID: `amazon.nova-pro-v1:0`)
+- Rerank 1.0 (ID: `amazon.rerank-v1:0`)
+- Titan Embeddings G1 - Text (ID: `amazon.titan-embed-text-v1`)
+- Titan Embeddings G1 - Text (ID: `amazon.titan-embed-text-v1:2:8k`)
+- Titan Image Generator G1 (ID: `amazon.titan-image-generator-v1`)
+- Titan Image Generator G1 (ID: `amazon.titan-image-generator-v1:0`)
+- Titan Image Generator G1 v2 (ID: `amazon.titan-image-generator-v2:0`)
+- Titan Multimodal Embeddings G1 (ID: `amazon.titan-embed-image-v1`)
+- Titan Multimodal Embeddings G1 (ID: `amazon.titan-embed-image-v1:0`)
+- Titan Text Embeddings v2 (ID: `amazon.titan-embed-g1-text-02`)
+- Titan Text Embeddings V2 (ID: `amazon.titan-embed-text-v2:0`)
+- Titan Text G1 - Express (ID: `amazon.titan-text-express-v1`)
+- Titan Text G1 - Express (ID: `amazon.titan-text-express-v1:0:8k`)
+- Titan Text G1 - Lite (ID: `amazon.titan-text-lite-v1`)
+- Titan Text G1 - Lite (ID: `amazon.titan-text-lite-v1:0:4k`)
+- Titan Text Large (ID: `amazon.titan-tg1-large`)
