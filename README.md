@@ -84,6 +84,7 @@ $ cd ../../..
 ```
 You can then start the chat with:
 ```console
+$ mv src/data src/lab/i-1
 $ cd src/lab/i-1
 $ ../../../bin/streamlit run rag_chatbot_app.py --server.port 8080
 ```
