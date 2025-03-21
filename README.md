@@ -17,7 +17,7 @@ You'll be prompted for your JPL password as well as your RSA PIN and token code.
 
 to skip the menu.
 
-👉 **Note:** The login afforded by the above command has a limited lifetime. If you ever get 
+👉 **Note:** The login afforded by the above command has a limited lifetime. If you ever get something like
 
     botocore.exceptions.ClientError: An error occurred (ExpiredTokenException) when calling the ListFoundationModels operation: The security token included in the request is expired
 
@@ -84,13 +84,12 @@ $ cd ../../..
 ```
 You can then start the chat with:
 ```console
-$ mv src/data src/lab/i-1
 $ cd src/lab/i-1
 $ ../../../bin/streamlit run rag_chatbot_app.py --server.port 8080
 ```
 Your browser should automatically open to http://localhost:8080.
 
-⚠️ **Note:** It still won't work! None of the models we have access support both "tool use" and `converse` which are apparently required for this example.
+⚠️ **Note:** It still doesn't work—not sure why yet.
 
 
 ## Available Models

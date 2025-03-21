@@ -88,7 +88,7 @@ def process_tool(response_message, messages, bedrock, tool_list):
         if 'toolUse' in content_block:
             tool_use_block = content_block['toolUse']
             if tool_use_block['name'] == 'get_amazon_bedrock_information':
-                collection = get_collection('../../data/chroma', 'bedrock_faqs_collection')
+                collection = get_collection('../../../data/chroma', 'bedrock_faqs_collection')
                 query = tool_use_block['input']['query']
                 print('————QUERY:————')
                 print(query)
