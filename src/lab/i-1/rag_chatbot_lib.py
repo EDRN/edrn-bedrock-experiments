@@ -6,7 +6,13 @@ import itertools, boto3, chromadb
 from chromadb.utils.embedding_functions import AmazonBedrockEmbeddingFunction
 
 MAX_MESSAGES = 20
-_tool_capable_model = 'NOTHING WORKS'  # Need at least Anthropic Claude Sonnet
+
+# The only tool-capable models we have access to are:
+#
+# - meta.llama3-1-405b-instruct-v1:0
+# - meta.llama3-1-70b-instruct-v1:0
+# - meta.llama3-1-8b-instruct-v1:0
+_tool_capable_model = 'meta.llama3-1-405b-instruct-v1:0'
 
 
 class ChatMessage:
