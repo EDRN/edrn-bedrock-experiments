@@ -17,10 +17,16 @@ You'll be prompted for your JPL password as well as your RSA PIN and token code.
 
 to skip the menu.
 
+👉 **Note:** The login afforded by the above command has a limited lifetime. If you ever get 
+
+    botocore.exceptions.ClientError: An error occurred (ExpiredTokenException) when calling the ListFoundationModels operation: The security token included in the request is expired
+
+simply re-run the `aws-login` commmand as shown above.
+
 
 ## Bedrock Lab
 
-Following instructions at https://catalog.us-east-1.prod.workshops.aws/event/dashboard/en-US/workshop/prerequisites/lab-setup, the following is a variation:
+Following instructions at https://catalog.us-east-1.prod.workshops.aws/event/dashboard/en-US/workshop/prerequisites/lab-setup, the following is a variation of these steps:
 
 ```console
 $ mkdir environment
@@ -39,14 +45,26 @@ At this point, they recommend you run
 
 to confirm you have access. This will fail. Modify the code such that any call to
 ```python
-    session = boto3.Session()
+session = boto3.Session()
 ```
 becomes
 ```python
-    session = boto3.Session(profile_name='saml-pub')
+session = boto3.Session(profile_name='saml-pub')
 ```
 You can also run
 
     bin/python3 src/test_bedrock.py
 
 which lists the available foundation models and then asks the `titan-text-express-v1` model what a cancer biomarker is.
+
+### Other Bedrock Labs
+
+The folder `src/lab` contains subfolders for each [documented Bedrock Lab](https://catalog.us-east-1.prod.workshops.aws/event/dashboard/en-US/workshop/) adapted for use at JPL. For example, the folder `src/lab/f-2` is for the [F-2 InvokeModel API lab](https://catalog.us-east-1.prod.workshops.aws/event/dashboard/en-US/workshop/foundation/bedrock-apis).
+
+To run each of these, first login with `aws-login` as above; then use the Python virtual environment to invoke each script. For example, for the F-2 lab:
+
+    bin/python3 src/lab/f-2/bedrock_api.py
+
+
+
+

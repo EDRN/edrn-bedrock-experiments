@@ -15,8 +15,9 @@ def main():
     bedrock = session.client(service_name='bedrock')
     print('🤖 Foundation Models (note: may not have permission to use most of these)')
     response = bedrock.list_foundation_models()
-    names = [i['modelName'] for i in response['modelSummaries']]
-    print(', '.join(names))
+    models = [(i['modelName'], i['modelId']) for i in response['modelSummaries']]
+    for model in models:
+        print(f'{model[0]} (ID: {model[1]})')
 
     # Start a session with the service named `bedrock-runtime`
     #
