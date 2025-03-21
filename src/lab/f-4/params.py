@@ -31,7 +31,7 @@ def get_text_response(model, input_content):
 
 
 def main():
-    parser = argparse.ArgumentParser(description='Lab I-4: Inference Parameters')
+    parser = argparse.ArgumentParser(description='Lab F-4: Inference Parameters')
     parser.add_argument('model', help='Model ID')
     parser.add_argument('input', nargs='+', help='Inputs to the model')
     args = parser.parse_args()
