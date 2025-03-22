@@ -81,15 +81,14 @@ Then run:
 $ cd environment/workshop/data
 $ ../../../bin/python3 populate_collection.py
 $ cd ../../..
+$ mdkir data
+$ mv environment/workshop/data/chroma data
 ```
 You can then start the chat with:
-```console
-$ cd src/lab/i-1
-$ ../../../bin/streamlit run rag_chatbot_app.py --server.port 8080
-```
-Your browser should automatically open to http://localhost:8080.
 
-⚠️ **Note:** It still doesn't work—not sure why yet.
+    bin/streamlit run rag_chatbot_app.py --server.port 8080
+
+Your browser should automatically open to http://localhost:8080. Questions related to AWS Bedrock should indicate "tool use" in the console log and an answer from the Bedrock FAQ that's in the `data/chroma` database. Questions not-related to AWS Bedrock will use the foundation model.
 
 
 ## Available Models

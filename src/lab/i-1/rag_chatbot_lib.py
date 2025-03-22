@@ -1,6 +1,7 @@
 # encoding: utf-8
 #
 # See https://catalog.us-east-1.prod.workshops.aws/event/dashboard/en-US/workshop/intermediate/bedrock-rag-chatbot
+# Or  https://catalog.workshops.aws/building-with-amazon-bedrock/en-US/intermediate/bedrock-rag-chatbot
 
 import itertools, boto3, chromadb
 from chromadb.utils.embedding_functions import AmazonBedrockEmbeddingFunction
@@ -68,11 +69,7 @@ def convert_chat_messages_to_converse_api(chat_messages):
     for chat_msg in chat_messages:
         messages.append({
             'role': chat_msg.role,
-            'content': [
-                {
-                    'text': chat_msg.text
-                }
-            ]
+            'content': [{'text': chat_msg.text}]
         })
 
     return messages
@@ -88,13 +85,14 @@ def process_tool(response_message, messages, bedrock, tool_list):
         if 'toolUse' in content_block:
             tool_use_block = content_block['toolUse']
             if tool_use_block['name'] == 'get_amazon_bedrock_information':
-                collection = get_collection('../../../data/chroma', 'bedrock_faqs_collection')
+                collection = get_collection('data/chroma', 'bedrock_faqs_collection')
                 query = tool_use_block['input']['query']
                 print('————QUERY:————')
                 print(query)
                 
                 search_results = get_vector_search_results(collection, query)
-                flattened_results_list = list(itertools.chain(*search_results['documents'])) #flatten the list of lists returned by chromadb
+                # flatten the list of lists returned by chromadb
+                flattened_results_list = list(itertools.chain(*search_results['documents']))
                 rag_content = '\n\n'.join(flattened_results_list)
                 
                 print('————RAG CONTENT————')
@@ -164,8 +162,11 @@ def chat_with_model(message_history, new_text=None):
     response_message = response['output']['message']
     tool_used, output = process_tool(response_message, messages, bedrock, tool_list)
     if not tool_used:
+        print('Tool was NOT used')
         # No tool was used, so just take advantage of the original non-RAG result
         output = response['output']['message']['content'][0]['text']
+    else:
+        print(f'RAG TOOL USE! Response = {output}')
 
     print('————FINAL RESPONSE————')
     print(output)
