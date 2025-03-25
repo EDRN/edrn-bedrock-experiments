@@ -1,17 +1,21 @@
-# AWS Bedrock
+# Amazon Bedrock
 
-Notes. TBD. More to come.
+[Amazon Bedrock](https://aws.amazon.com/bedrock/) is an AWS-provided service for generative AI. It supports a number of foundation models all of which can be accessed through a single API and web interface. This makes it possible to experiment with and evaluate different foundation models for specific use cases and select the best one for the application.
+
+JPL has provided access to Bedrock. See "Available Models" below for a list of the enabled models.
+
+The [Early Detection Research Network](https://edrn.nci.nih.gov/) (EDRN) is a cooperative project of JPL and the National Cancer Institute that we're using as a test case for Bedrock. EDRN has a large amount of data (cancer biomarkers, research protocols, thousands of publications, for example) that make it ideal for Bedrock experimentation.
 
 
 ## AWS Login for JPL Users
 
-First visit the [AWS CLI and BOTO with JPL Credentials](https://wiki.jpl.nasa.gov/x/a4XyGQ) page and download the JPL AWS CLI helper for your platform.
+To use Bedrock at JPL, you need to authenticate. To do so, first visit the [AWS CLI and BOTO with JPL Credentials page](https://wiki.jpl.nasa.gov/x/a4XyGQ) and download the JPL AWS CLI helper for your platform.
 
 For example, for macOS, download the file `aws-login.darwin.amd64`, rename it to simply `aws-login`, and make it executable; then log in:
 
     aws-login --pub --region us-west-2 --profile saml-pub --username USERNAME
 
-You'll be prompted for your JPL password as well as your RSA PIN and token code. Then choose the role `am-edrn-dev` from the menu. In the future, you can then do
+You'll be prompted for your JPL password as well as your RSA PIN and token code. Then choose a role from the menu. For EDRN, that's `am-edrn-dev`. In the future, you can then do
 
     aws-login --pub --region us-west-2 --profile saml-pub --username USERNAME --last_role
 
@@ -26,8 +30,7 @@ simply re-run the `aws-login` commmand as shown above.
 
 ## Bedrock Lab
 
-Following instructions at https://catalog.us-east-1.prod.workshops.aws/event/dashboard/en-US/workshop/prerequisites/lab-setup, the following is a variation of these steps:
-
+AWS provides a series of "labs" that teach the core concepts of Bedrock. [Getting started with Bedrock](https://catalog.workshops.aws/building-with-amazon-bedrock/en-US/prerequisites/lab-setup) is simple enough, however here are specific commands in brief that you can follow along with to set up your "lab environment":
 ```console
 $ mkdir environment
 $ cd environment
