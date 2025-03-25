@@ -1,6 +1,6 @@
 # encoding: utf-8
 #
-# https://catalog.us-east-1.prod.workshops.aws/event/dashboard/en-US/workshop/foundation/bedrock-temperature
+# https://catalog.workshops.aws/building-with-amazon-bedrock/en-US/foundation/bedrock-temperature
 #
 # Example:
 #

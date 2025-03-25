@@ -2,7 +2,7 @@
 #
 # Lab F-2: InvokeModel API
 #
-# See https://catalog.us-east-1.prod.workshops.aws/event/dashboard/en-US/workshop/foundation/bedrock-apis
+# https://catalog.workshops.aws/building-with-amazon-bedrock/en-US/foundation/bedrock-apis
 
 
 import json, boto3

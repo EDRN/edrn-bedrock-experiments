@@ -1,4 +1,8 @@
 # encoding: utf-8
+#
+# Lab F-6: Tool use
+#
+# https://catalog.workshops.aws/building-with-amazon-bedrock/en-US/foundation/tool-use
 
 import boto3, json, math, sys
 
@@ -25,7 +29,8 @@ _tool_list = [{
 # Tool-capable Models
 # -------------------
 #
-# The only tool-capable models we have access to are:
+# The only tool-capable models we have access to are (as of 2025-03-25):
+#
 # - meta.llama3-1-405b-instruct-v1:0
 # - meta.llama3-1-70b-instruct-v1:0
 # - meta.llama3-1-8b-instruct-v1:0

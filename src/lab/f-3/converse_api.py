@@ -2,7 +2,7 @@
 #
 # Lab F-3: Converse API
 #
-# See https://catalog.us-east-1.prod.workshops.aws/event/dashboard/en-US/workshop/foundation/converse-api
+# https://catalog.workshops.aws/building-with-amazon-bedrock/en-US/foundation/converse-api
 
 
 import json, boto3
