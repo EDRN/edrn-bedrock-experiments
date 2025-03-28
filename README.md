@@ -34,7 +34,9 @@ AWS provides a series of "labs" that teach the core concepts of Bedrock. [Gettin
 ```console
 $ mkdir environment
 $ cd environment
-$ curl 'https://static.us-east-1.prod.workshops.aws/5dd5dc48-363d-4c69-9007-9e5528c5c31f/assets/workshop.zip?Key-Pair-Id=K36Q2WVO3JP7QD&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9zdGF0aWMudXMtZWFzdC0xLnByb2Qud29ya3Nob3BzLmF3cy81ZGQ1ZGM0OC0zNjNkLTRjNjktOTAwNy05ZTU1MjhjNWMzMWYvKiIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc0MzA4MDYzN319fV19&Signature=CnywullBOTkmlqhJbNSqqPjv~jKSeIHw27if2BeBKRujEmNUegPuUixGYMZ~11EYvARfUMIK6R6ZBQyLcsEj75jWa9y2eAzUV6VOX2gHpJ-tTxehHZZvoobqA5tBuY9ow~jN21BWHttHjcJUuyrXZ631yfM3VC4UD8Z72mlrqEv7q2Tc3jIj0XAeSpgjdcw0sb8SqSwyUeX3ZUkAM2c3~TIFVGII4C-CKoxMU9x--PgqgeRn0ZBJnI6RYAOqDrq79XjBHukhY2wMg9~q4RuB8ip5vLc8xsE01IPzK5b-cy8x4sHCPc5UOhOjNFdA0I~wc8uwXez48xVyR6qs9u4q1A__' --output workshop.zip
+$ curl \
+    'https://static.us-east-1.prod.workshops.aws/public/5dd5dc48-363d-4c69-9007-9e5528c5c31f/assets/workshop.zip' \
+    --output workshop.zip
 $ unzip workshop.zip
 $ rm workshop.zip
 $ cd ..
