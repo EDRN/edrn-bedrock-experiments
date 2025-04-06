@@ -17,7 +17,7 @@ For example, for macOS, download the file `aws-login.darwin.amd64`, rename it to
 
 You'll be prompted for your JPL password as well as your RSA PIN and token code. Then choose a role from the menu. For EDRN, that's `am-edrn-dev`. In the future, you can then do
 
-    aws-login --pub --region us-west-2 --profile saml-pub --username USERNAME --last_role
+    aws-login --pub --region us-west-2 --profile saml-pub --last_role --username USERNAME
 
 to skip the menu.
 
